@@ -180,3 +180,9 @@ const updateBook = {
   pages: 1210,
 };
 updateBook;
+
+// template literals
+const summary = `${title}, a ${pages}-pages long book, was written by ${author} and publish in ${
+  publicationDate.split('-')[0]
+} is a book`;
+summary;
