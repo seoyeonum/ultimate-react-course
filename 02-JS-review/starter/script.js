@@ -143,9 +143,9 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-// Desctructuring
+// Destructuring
 
-const book = getBook(2);
+const book = getBook(1);
 book;
 
 // const title = book.title;
@@ -159,6 +159,24 @@ console.log(author, title, genres);
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
 
-const [primaryGenre, secondaryGenre] = genres;
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+// rest operator는 Destructuring 패턴의 가장 끝 element와 함께 작성해야만 한다.
 
-console.log(primaryGenre, secondaryGenre);
+console.log(primaryGenre, secondaryGenre, otherGenres);
+
+// spread operator
+// 배열 안의 값을 모두 꺼내어 나열 → 새로운 값을 이어붙이기 좋음
+const newGenres = [...genres, 'epic fantasy'];
+const newGenres2 = ['epic fantasy', ...genres]; // 이렇게 맨 끝에 붙여도 된다.
+newGenres;
+
+// 기존에 있는 속성은 덮어쓰기 된다.
+const updateBook = {
+  ...book,
+  // Adding a new property
+  moviePublicationDate: '2001-12-19',
+
+  // Overwriting an existing property
+  pages: 1210,
+};
+updateBook;
