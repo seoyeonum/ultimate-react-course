@@ -181,10 +181,18 @@ const updateBook = {
 };
 updateBook;
 
+// arrow function
+// function getYear(str) {
+//   return str.split('-')[0];
+// }
+
+const getYear = (str) => str.split('-')[0];
+console.log(getYear(publicationDate));
+
 // template literals
-const summary = `${title}, a ${pages}-pages long book, was written by ${author} and publish in ${
-  publicationDate.split('-')[0]
-}. The book has ${hasMovieAdaptation ? '' : 'not'} been adapted as a movie`;
+const summary = `${title}, a ${pages}-pages long book, was written by ${author} and publish in ${getYear(
+  publicationDate
+)}. The book has ${hasMovieAdaptation ? '' : 'not'} been adapted as a movie`;
 summary;
 
 // terneries instead of if/else statements
