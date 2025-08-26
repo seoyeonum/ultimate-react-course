@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring
 
-const book = getBook(2);
+const book = getBook(3);
 book;
 
 // const title = book.title;
@@ -199,3 +199,40 @@ summary;
 const pagesRange = pages > 1000 ? 'over a thousand' : 'less than 1000';
 pagesRange;
 console.log(`The book has ${pagesRange} pages`);
+
+// short-circuiting and logical operator
+// : 논리 연산자에서 전자만으로 판단이 된다면 더 이상 다음 값을 보지 않고 true/false 를 반환
+console.log(true && 'Some string');
+console.log(false && 'Some string');
+console.log(hasMovieAdaptation && 'This book has a movie');
+
+// falsy: 0, '', null, undefined, NaN
+console.log('jonas' && 'Some string');
+console.log(0 && 'Some string');
+
+console.log(true || 'Some string');
+console.log(false || 'Some string');
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED';
+spanishTranslation;
+
+// 주의: 0 이 falsy value 로 취급되며 no data 반환...
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || 'no data';
+// countWrong;
+
+// // nullish only returns the second value when the first value is null or undefined.
+// // → 즉, or 과 달리, ?? 연산자는 첫 번째 정의된(defined) 값을 반환
+// const count = book.reviews.librarything.reviewsCount ?? 'no data';
+// count;
+
+// optional chaining(~~~?)
+function getTotalReciewCout(book) {
+  const goodread = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  return goodread + librarything;
+}
+
+console.log(getTotalReciewCout(book));
