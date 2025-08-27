@@ -66,7 +66,7 @@ const data = [
     publicationDate: '1965-01-01',
     author: 'Frank Herbert',
     genres: ['science fiction', 'novel', 'adventure'],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 658,
     translations: {
       spanish: '',
@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-
+/*
 const book = getBook(3);
 book;
 
@@ -236,3 +236,60 @@ function getTotalReciewCout(book) {
 }
 
 console.log(getTotalReciewCout(book));
+*/
+
+function getTotalReciewCout(book) {
+  const goodread = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  return goodread + librarything;
+}
+
+// the array map method
+// 기존 배열을 변형하지 않고 기존 배열 기반의 새 배열을 만든다.
+const books = getBooks();
+books;
+
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+console.log(x);
+
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReciewCout(book),
+}));
+essentialData;
+
+// the array filter method
+// 기존 배열을 기반으로 조건에 부합하는 값을 filter 해서 새 배열을 반환한다.
+const longBooksWithMovie = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+longBooksWithMovie;
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes('adventure'))
+  .map((book) => book.title);
+adventureBooks;
+
+// the array reduce method
+// 전체 배열을 하나의 값으로 축소하는 것이 reduce 메소드의 목표
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+pagesAllBooks;
+
+// the array sort method
+// 아래 sorted 배열에서,
+// sort 메소드는 a-b 값이 음수라면 현 순서 유지,
+// 양수라면 a와 b 값을 서로 바꾼다. (오름차순 정렬을 위함)
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+// map, filter, reduce 와 달리 sort 는 method 가 아니다.
+// sort 는 변이를 일으키는 method 이므로 기존 배열을 변경한다.
+// → slice() 를 통해 기존 배열을 변경하지 않고 복사하여 값을 정렬한다.
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
