@@ -238,6 +238,7 @@ function getTotalReciewCout(book) {
 console.log(getTotalReciewCout(book));
 */
 
+/*
 function getTotalReciewCout(book) {
   const goodread = book.reviews?.goodreads?.reviewsCount;
   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
@@ -314,3 +315,25 @@ const booksAfterUpdate = booksAfterDelete.map((book) =>
   book.id === 1 ? { ...book, pages: 1210 } : book
 );
 booksAfterUpdate;
+*/
+
+// Asynchronous JavaScript: Promises
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+//   console.log('jonas');
+
+// Asynchronous JavaScript: Async/Await
+async function getTodos() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+const todos = getTodos();
+console.log(todos);
+
+console.log('jonas');
