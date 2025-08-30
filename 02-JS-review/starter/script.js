@@ -325,6 +325,8 @@ booksAfterUpdate;
 //   console.log('jonas');
 
 // Asynchronous JavaScript: Async/Await
+// 비동기(async) 처리 시 먼저 호출해도 먼저 응답하지 않을 수 있다.
+// awiat 키워드 사용 시 값을 바로 반환하지 않고 변수에 담을 수 있다.
 async function getTodos() {
   const res = await fetch('https://jsonplaceholder.typicode.com/todos');
   const data = await res.json();
