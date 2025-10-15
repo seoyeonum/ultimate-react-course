@@ -22,7 +22,7 @@ ultimate-react-course/
 ## 🚀 Quick Access to README
 - [03-pizza-menu](https://github.com/seoyeonum/pizza-menu)
 
-<img src="https://github.com/seoyeonum/pizza-menu/assets/2.pizza_menu_open_half.JPG" alt="Pizza Menu 프로젝트 캡처" width="300"/>
+<img src="https://raw.githubusercontent.com/seoyeonum/pizza-menu/main/assets/2.pizza_menu_open_half.JPG" alt="Pizza Menu 프로젝트 캡처" width="300"/>
 
 ## 📝 Original README
 The file below is the original README.md.
